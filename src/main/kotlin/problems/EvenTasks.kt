@@ -12,7 +12,8 @@ object EvenTasks {
      *  - countVowels("") -> 0
      */
     fun countVowels(text: String): Int {
-        return -1
+        val vowels = setOf('a', 'e', 'i', 'o', 'u')
+        return text.lowercase().count { it in vowels }
     }
 
     /**
@@ -25,6 +26,9 @@ object EvenTasks {
      *  - isPalindrome("kotlin") -> false
      */
     fun isPalindrome(word: String): Boolean {
-        return false
+        val cleanWord = word
+            .lowercase()                  // Ignorar mayúsculas
+            .filter { it.isLetterOrDigit() } // Quitar espacios y signos
+        return cleanWord == cleanWord.reversed()
     }
 }
